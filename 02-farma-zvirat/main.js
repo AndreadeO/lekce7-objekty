@@ -1,3 +1,4 @@
+/*
 let krava = {
     jmeno: 'Kravicka',
     foto: 'obrazky/krava.jpg'
@@ -44,7 +45,42 @@ zvire.appendChild(jmenoZvirete);
 let farma = document.querySelector('.farma');
 farma.appendChild(zvire); // az po zavolani tohoto se objevi krava na farme
 
-
+*/
 // Bonus
 // Co kdybychom meli program, kde tech zvirat je vic - objekt krava, objekt ovce, objekt prase...
 // Musela bych pro kazdy objekt mit samostatnou promennou...jde to lépe?
+
+const poleZvirat = [
+    {jmeno: 'Ovecka', foto: 'obrazky/ovce.jpg'},
+    {jmeno: 'Husa', foto: 'obrazky/husa.jpg'},
+    {jmeno: 'Kocka', foto: 'obrazky/kocka.jpg'},
+    {jmeno: 'Kun', foto: 'obrazky/kun.jpg'},
+    {jmeno: 'Pes', foto: 'obrazky/pes.jpg'},
+
+];
+
+let farma = document.querySelector('.farma');
+for (i = 0; i < poleZvirat.length; i++) {
+    
+    // vytvoreni div
+    let zvire = document.createElement('div');
+    zvire.className = 'zvire';
+
+    // vytvoreni obrazku zvirete
+    let fotoZvirete = document.createElement('img');
+    fotoZvirete.className = 'foto';
+    fotoZvirete.src = poleZvirat[i].foto;
+
+    // vytvoreni popisku zvirete
+    let jmenoZvirete = document.createElement('span');
+    jmenoZvirete.className = 'jmeno';
+    fotoZvirete.innerHTML = poleZvirat[i].jmeno;
+
+    // dalsi zvirata
+    zvire.appendChild(fotoZvirete);
+    zvire.appendChild(jmenoZvirete);
+
+    // zobrazeni zvirat
+    farma.appendChild(zvire);
+}
+
